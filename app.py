@@ -69,11 +69,10 @@ prev_caption = ''
 st.title("Webcam Live Feed")
 run = st.checkbox('Run')
 FRAME_WINDOW = st.image([])
-cap=cv2.VideoCapture(0,cv2.CAP_DSHOW) 
-if not (cap.isOpened()):
-    print("Could not open video device")
+ 
 
 while run:
+    cap=cv2.VideoCapture(0,cv2.CAP_DSHOW)
     ret, image = cap.read()
 
     if not ret:
