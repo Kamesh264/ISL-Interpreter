@@ -14,7 +14,7 @@ with open('trained_models/random_forest_model.pkl', 'rb') as f:
     loaded_model = pickle.load(f)
 
 confidence = 0.5
-mp_options = mp.solutions.Hands.Options(
+mp_options = mp.solutions.hands.Options(
     max_num_hands=2,
     min_detection_confidence=confidence,
     min_tracking_confidence=0.5,  # adjust as needed
