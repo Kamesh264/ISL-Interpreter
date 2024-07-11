@@ -17,7 +17,7 @@ mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 
 confidence = 0.5
-hands = mp_hands.Hands(static_image_mode=True, max_num_hands=2, min_detection_confidence=confidence, use_gpu = False)
+hands = mp_hands.Hands(static_image_mode=True, max_num_hands=2, min_detection_confidence=confidence)
 
 df = pd.read_csv("landmark_data/Gestures_sentences.csv")
 my_dict = df.set_index('gesture_names')['sentence'].to_dict()
@@ -63,6 +63,7 @@ threshold = 20
 seq = ['None']
 caption = ''
 prev_caption = ''
+
 # print(cap)
 
 st.title("Webcam Live Feed")
