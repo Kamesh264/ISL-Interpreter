@@ -64,6 +64,7 @@ seq = ['None']
 caption = ''
 prev_caption = ''
 cap = cv2.VideoCapture(0)
+print(cap)
 
 st.title("Webcam Live Feed")
 run = st.checkbox('Run')
