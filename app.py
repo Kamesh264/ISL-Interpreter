@@ -134,8 +134,9 @@ while run:
     FRAME_WINDOW.image(image)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
+        cap.release()
         break
 
-cap.release()
+
 cv2.destroyAllWindows()
 st.write("Stopped")
