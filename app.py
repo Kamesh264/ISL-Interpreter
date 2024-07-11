@@ -68,7 +68,7 @@ cap = cv2.VideoCapture(0)
 st.title("Webcam Live Feed")
 run = st.checkbox('Run')
 FRAME_WINDOW = st.image([])
-cap = cv2.VideoCapture(-1)
+cap = cv2.VideoCapture(1)
 
 while run:
     ret, image = cap.read()
