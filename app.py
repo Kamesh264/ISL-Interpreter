@@ -135,7 +135,7 @@ while run:
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-else:
-    cap.release()
-    cv2.destroyAllWindows()
-    st.write("Stopped")
+
+cap.release()
+cv2.destroyAllWindows()
+st.write("Stopped")
