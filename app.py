@@ -13,11 +13,18 @@ with open('trained_models/scaler.pkl', 'rb') as f:
 with open('trained_models/random_forest_model.pkl', 'rb') as f:
     loaded_model = pickle.load(f)
 
-mp_hands = mp.solutions.hands
-mp_drawing = mp.solutions.drawing_utils
-
 confidence = 0.5
-hands = mp_hands.Hands(static_image_mode=True, max_num_hands=2, min_detection_confidence=confidence)
+mp_options = mp.solutions.Hands.Options(
+    max_num_hands=2,
+    min_detection_confidence=confidence,
+    min_tracking_confidence=0.5,  # adjust as needed
+    use_gpu=False  # disable GPU for now
+)
+mp_hands = mp.solutions.hands;
+hands = mp_hands.Hands(static_image_mode=True, options=mp_options)
+
+
+# hands = mp_hands.Hands(static_image_mode=True, max_num_hands=2, min_detection_confidence=confidence)
 
 df = pd.read_csv("landmark_data/Gestures_sentences.csv")
 my_dict = df.set_index('gesture_names')['sentence'].to_dict()
